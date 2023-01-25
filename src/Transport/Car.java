@@ -49,6 +49,10 @@ public class Car extends Transport<DriverB> implements Racing {
             System.out.println("Кузов: " + currentBodyType);
         }
     }
+    @Override
+    public void doDiagnostic() {
+        System.out.println(getBrand() + " " + getModel() + " прошла диагностику");
+    }
 
     public void getPitStop(Car car) {
         System.out.println(car.getBrand() + " " + car.getModel() + " - съехал с дистанции на питстоп!");

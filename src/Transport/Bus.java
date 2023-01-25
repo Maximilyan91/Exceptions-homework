@@ -44,6 +44,11 @@ public class Bus extends Transport<DriverD> implements Racing{
         }
     }
 
+    @Override
+    void doDiagnostic() {
+
+    }
+
     public void getPitStop(Bus bus) {
         System.out.println(bus.getBrand() + " " + bus.getModel() + " - съехал с дистанции на питстоп!");
     }

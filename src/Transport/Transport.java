@@ -62,6 +62,7 @@ public abstract class Transport<T extends Driver> implements Racing {
 
     abstract void printType();
 
+    abstract void doDiagnostic();
 
     public void printInfo() {
         System.out.println("водитель " + driver.getFullName() + " управляет автомобилем " + getBrand() + " и будет участвовать в заезде");

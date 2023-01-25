@@ -44,6 +44,11 @@ public class Truck extends Transport<DriverC> implements Racing {
         }
     }
 
+    @Override
+    void doDiagnostic() {
+        System.out.println( getBrand() + " " + getModel() + " прошла диагностику");
+    }
+
     public void getPitStop(Truck truck) {
         System.out.println(truck.getBrand() + " " + truck.getModel() + " - съехал с дистанции на питстоп!");
     }
