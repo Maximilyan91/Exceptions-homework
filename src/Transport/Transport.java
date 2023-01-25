@@ -1,6 +1,7 @@
 package Transport;
 
 import Drivers.Driver;
+import Drivers.NoDriverLicenseException;
 
 public abstract class Transport<T extends Driver> implements Racing {
 
@@ -62,7 +63,7 @@ public abstract class Transport<T extends Driver> implements Racing {
 
     abstract void printType();
 
-    abstract void doDiagnostic();
+    abstract boolean doDiagnostic() throws NoDriverLicenseException;
 
     public void printInfo() {
         System.out.println("водитель " + driver.getFullName() + " управляет автомобилем " + getBrand() + " и будет участвовать в заезде");

@@ -1,6 +1,7 @@
 package Transport;
 
 import Drivers.DriverC;
+import Drivers.NoDriverLicenseException;
 
 public class Truck extends Transport<DriverC> implements Racing {
 
@@ -45,8 +46,12 @@ public class Truck extends Transport<DriverC> implements Racing {
     }
 
     @Override
-    void doDiagnostic() {
-        System.out.println( getBrand() + " " + getModel() + " прошла диагностику");
+    boolean doDiagnostic() throws NoDriverLicenseException {
+        if (getDriver() != null && getDriver().getHasDriverLicense()) {
+            return true;
+        } else {
+            throw new NoDriverLicenseException();
+        }
     }
 
     public void getPitStop(Truck truck) {

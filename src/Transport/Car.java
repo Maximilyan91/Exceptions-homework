@@ -1,6 +1,7 @@
 package Transport;
 
 import Drivers.DriverB;
+import Drivers.NoDriverLicenseException;
 
 public class Car extends Transport<DriverB> implements Racing {
 
@@ -49,9 +50,14 @@ public class Car extends Transport<DriverB> implements Racing {
             System.out.println("Кузов: " + currentBodyType);
         }
     }
+
     @Override
-    public void doDiagnostic() {
-        System.out.println(getBrand() + " " + getModel() + " прошла диагностику");
+    public boolean doDiagnostic() throws NoDriverLicenseException {
+        if (getDriver() != null && getDriver().getHasDriverLicense()) {
+            return true;
+        } else {
+            throw new NoDriverLicenseException();
+        }
     }
 
     public void getPitStop(Car car) {

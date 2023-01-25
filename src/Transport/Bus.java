@@ -1,6 +1,7 @@
 package Transport;
 
 import Drivers.DriverD;
+import Drivers.NoDriverLicenseException;
 
 public class Bus extends Transport<DriverD> implements Racing{
 
@@ -45,8 +46,8 @@ public class Bus extends Transport<DriverD> implements Racing{
     }
 
     @Override
-    void doDiagnostic() {
-
+    boolean doDiagnostic() throws NoDriverLicenseException {
+        return false;
     }
 
     public void getPitStop(Bus bus) {
