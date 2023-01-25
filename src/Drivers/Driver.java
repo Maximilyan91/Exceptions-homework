@@ -12,7 +12,7 @@ public abstract class Driver {
 
     public Driver(String fullName, boolean hasDriverLicense, int experience) {
         this.fullName = fullName;
-        this.hasDriverLicense = hasDriverLicense;
+        setHasDriverLicense(hasDriverLicense);
         this.experience = experience;
     }
 
